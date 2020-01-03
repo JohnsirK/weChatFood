@@ -1,0 +1,47 @@
+<!--pages/allCity/allCity.wxml-->
+<view class="container">
+  <!--
+  scroll-view             组件
+  scroll-y                允许纵向滚动
+  scroll-with-animation   设置滚动条位置时使用动画过度 
+  scroll-into-view        值为某子元素id。设置哪个方向可滚动，则在哪个方向滚动到该元素  
+  enable-back-to-top      ios点击顶部状态栏，安卓双击标题栏时，滚动条返回顶部，只支持竖向
+  bindscroll              滚动时触发
+  scroll-top              设置竖向滚动条位置
+  -->
+  <scroll-view scroll-y style = "height: 100%; white-space: nowrap;" scroll-with-animation enable-back-to-top bindscroll = "cityScroll" scroll-top = "{{scrollTop}}">
+    <!-- 热门城市 -->
+    <view class="list" >
+      <view class="title">
+        热门城市
+      </view>
+      <text class="li" wx:for = "{{hotCity}}" wx:for-index = "index" wx:for-item = "item" wx:key = "unique" data-item = "{{item}}" bindtap = "toSearch">{{item.name}}</text>
+    </view>
+    <!-- 全部城市 -->
+    <block wx:if = "{{isShow}}">
+      <view class="noData">
+        数据加载中...
+      </view>
+    </block>
+    <block wx:else>
+      <view class="hot" id = "{{index}}" wx:for = "{{allCity}}" wx:for-item = "item" wx:for-index = "index" wx:key = "unique">
+        <view class="title" wx:if = "{{index === 'A'}}">
+          {{index}} <text class="topName">(按字母顺序排列)</text>
+        </view>
+        <view class="title" wx:else>
+          {{index}}
+        </view>
+        <text class="li" wx:for = "{{item}}" wx:for-index = "index" wx:for-item = "li" wx:key = "unique" data-item = "{{li}}" bindtap = "toSearch">{{li.name}}</text>
+      </view>
+    </block>
+  </scroll-view>
+  <!-- 右侧漂浮栏 -->
+  <view class="rightFix"> 
+    <text class = "{{currt === item ? 'cur' : ''}}" wx:for = "{{text}}" wx:for-index = "index" wx:key = "unique" data-id = "{{item}}" data-index = "{{index}}" bindtap = "clickIndex" >{{item}}</text>
+  </view>
+  <!-- 中间索引放大 -->
+  <view class="bigIndex" hidden = "{{!indexShow}}">
+    <text>{{indexId}}</text>
+  </view>
+</view>
+ 

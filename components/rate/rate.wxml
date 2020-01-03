@@ -1,0 +1,11 @@
+<!--components/rate/rate.wxml-->
+<view class="rateStar">
+  <block wx:if = "twoNum < 0">
+    {{oneNum}}
+    <view class = "iconfont icon-xing fatherStart" wx:for = "{{oneNum}}">
+      <text class = "iconfont icon-xing"></text>
+    </view>
+  </block>
+  <view class = "iconfont icon-xing fatherStart bw{{twoNum}}"></view>
+  
+</view>

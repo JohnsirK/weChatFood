@@ -1,0 +1,42 @@
+<!--components/shop/shopCart/shopCart.wxml-->
+<view class="shopCart">
+  <view class="cartIcon" bindtap = "cartListShow" animation = "{{animationData}}">
+    <text class = "iconfont icon-gouwuche"></text>
+    <text class="num" wx:if = "{{allNum > 0}}">{{allNum}}</text>
+  </view>
+  <view class="cartText">
+    <view class="h5">
+      ￥<text>{{allMoney + 5}}</text>
+    </view>
+    <view class="h6">
+      配送费: ￥5
+    </view>
+  </view>
+  <view class="cartBtn" bindtap = "goTotal">
+    去结算
+  </view>
+</view>
+<view class="shopCartList {{isOpen ? 'idx1' : ''}}" animation = "{{cartAnimation}}">
+  <view class="title">
+    购物车
+    <!-- <view class="icon" catchtap = "allClear">
+      <text class = "iconfont icon-shanchu"></text>
+      清空
+    </view> -->
+  </view>
+  <view class="p20">
+    <view class="list" wx:for = "{{dataJson}}" wx:for-item = "item" wx:for-index = "index" wx:key = "unique">
+      <view class="txt">
+        {{item.name}}
+      </view>
+      <view class="right">
+        <view class="price">
+          ￥<text class = "l1">{{item.price}}</text>
+        </view> 
+        <view class="menu"> 
+          <text class = "number">x{{item.quantity}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

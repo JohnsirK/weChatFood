@@ -1,0 +1,77 @@
+/**index.wxss**/
+.banner, .banner .swiper-item, {
+	width: 100%;
+}
+
+.banner swiper {
+  
+}
+
+.banner .swiper-item image {
+	width: 100%;
+}
+
+.indexEntry {
+	background: #fff;
+	height: 360rpx;
+	box-shadow: 0 4rpx 20rpx rgba(195, 195, 195, .1);
+  padding-top: 20rpx;
+}
+
+.indexEntry swiper {
+	height: 100%;
+}
+
+.indexEntry .iconList .li {
+	width: 25%;
+	float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.indexEntry .iconList .li image {
+  width: 60%;
+  display: block;
+}
+.indexEntry .iconList .li text {
+  color: #666;
+  font-size: 28rpx;
+}
+.todayHot {
+  padding-top: 20rpx;
+}
+.todayHot .h3All {
+  text-align: center;
+  position: relative;
+  color: #999;
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+.todayHot .h3All text {
+  position: absolute;
+  right: 30rpx;
+  font-size: 24rpx;
+  color: #999
+}
+.todayHot .h3All::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  background: linear-gradient(to left, #bba9a9, #efeaea);
+  width: 100rpx;
+  height: 2rpx;
+}
+.todayHot .h3All::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 25%;
+  background: linear-gradient(to right, #bba9a9 , #efeaea);
+  width: 100rpx;
+  height: 2rpx;
+}
+.mb102 {
+  margin-bottom: 102rpx;
+}

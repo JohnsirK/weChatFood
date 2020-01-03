@@ -1,0 +1,57 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- banner -->
+  <view class="banner" >
+    <!-- 
+     swiper 组件
+     indicator-dots 控制面板指示点显示
+     indicator-color  指示点颜色
+     indicator-active-color 选中指示点颜色
+     autoplay       自动播放
+     interval       自动播放间隔
+     duration       动画执行时长
+     circular       是否循环滚动
+    -->
+    <swiper indicator-dots = "true" autoplay interval = "3000" duration = "300" circular indicator-color = "#ccc" indicator-active-color = "#007aff" style = "height: {{height}}">
+      <swiper-item wx:for = "{{bannerList}}" wx:key = "unique">
+        <view class="swiper-item">
+          <!-- bindload 为图片设置加载事件 -->
+          <image src = "{{item}}" mode = "widthFix" bindload = "imgHeight"></image> 
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- banner end -->
+  <!-- 引入wxs -->
+   
+  <view class="indexEntry">
+    <block wx:if = "{{indexEntryData.length > 0}}">
+      <swiper indicator-dots = "true" indicator-color = "#ccc" indicator-active-color = "#007aff" duration="300">
+        <swiper-item wx:for = "{{indexEntryData}}" wx:for-item = "item" wx:for-index = "index" wx:key = "unique">
+          <view class="iconList">
+            <view class="li" wx:for = "{{item}}" wx:for-item = "li" wx:for-index = "idx" wx:key = "unique" bindtap = "toFood" data-item = "{{li}}">
+              <image src = "{{imgUrl + li.image_url}}" mode = "widthFix"></image>
+              <text>{{li.title}}</text>
+            </view>
+          </view>
+        </swiper-item>
+      </swiper>
+    </block>
+    <block wx:else>
+      <view class="noData">
+        数据加载中...
+      </view>
+    </block>
+  </view>
+  <!-- 今日推荐 -->
+  <view class="todayHot">
+    <view class="h3All">
+      今日推荐
+      <text bindtap = "toMore">More+</text>
+    </view>
+    <view class="mb102" id="list">
+      <food-list dataJson = "{{todayHotData}}"></food-list>
+    </view>
+  </view>
+  <!-- 今日推荐 end -->
+</view>

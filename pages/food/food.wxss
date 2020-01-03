@@ -1,0 +1,32 @@
+/* pages/food/food.wxss */
+.fixedTop {
+  background: #fff;
+  height: 80rpx;
+  box-sizing: border-box;
+  color: #333;
+  padding: 0 30rpx;
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  box-shadow: 0 4rpx 20rpx rgba(195, 195, 195, .6);
+  z-index: 9;
+  font-size: 28rpx;
+}
+.fixedTop .van-dropdown-menu{
+  height: 80rpx;
+}
+.fixedTop .van-sidebar-item__text {
+  font-weight: bold;
+}
+.fixedTop .van-ellipsis {
+  font-weight: normal;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.mt102 {
+  margin-top: 80rpx;
+}

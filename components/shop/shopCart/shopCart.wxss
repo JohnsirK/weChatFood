@@ -1,0 +1,163 @@
+/* components/shop/shopCart/shopCart.wxss */
+@import '../../../app.wxss'
+.shopCart {
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  background: #4a4949;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+}
+.cartBtn {
+  height: 100%;
+  width: 200rpx;
+  margin-left: auto;
+  background: #f60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.cartBtn1 {
+  height: 100%;
+  width: 200rpx;
+  margin-left: auto;
+  background: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 36rpx;
+  
+}
+.cartIcon {
+  margin: -20rpx 20rpx 0 20rpx;
+  height: 100rpx;
+  background: #cfcfcf;
+  width: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100rpx;
+  border: 10rpx solid #4a4949;
+  position: relative;
+  
+}
+.cartIcon .num {
+  position: absolute;
+  top:-20rpx;
+  right: 0;
+  font-size: 24rpx;
+  background: red;
+  color: #fff;
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24rpx;
+}
+.cartIcon .iconfont {
+  color: #fff;
+  font-size: 60rpx;
+}
+.cartText .h5{
+  color: #fff;
+  font-size: 24rpx;
+}
+.cartText .h5 text {
+  font-size: 48rpx;
+}
+.cartText .h6 {
+  color: #999;
+  font-size: 24rpx;
+}
+.shopCartList {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+  width: 100%;
+  min-height: 200rpx;
+  max-height: 50%;
+  overflow-y: auto;
+  opacity: 0;
+}
+.idx0 {
+  z-index: -1;
+}
+.idx1 {
+  z-index: 1;
+}
+.he {
+  height: 50%;
+}
+.shopCartList .title {
+  background: #eceff1;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  color: #666;
+  font-size: 28rpx;
+  padding: 0 20rpx;
+}
+.shopCartList .icon {
+  margin-left: auto;
+  color: #666;
+  font-size: 28rpx;
+}
+.shopCartList .iconfont {
+  font-size: 32rpx;
+}
+.shopCartList .list {
+  border-bottom: 2rpx solid #fbf3f3;
+  display: flex;
+  align-items: center;
+  padding: 0 0 20rpx 0;
+  margin-top:20rpx;
+}
+.shopCartList .list:last-child {
+  border-bottom: none;
+}
+.shopCartList .list .txt {
+  font-size: 28rpx;
+  color: #333;
+  width: calc(100% - 210rpx);
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  height: 36rpx;
+}
+.shopCartList .list .right {
+  margin-left: auto;
+  width: 200rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.p20 {
+  padding: 0 20rpx 20rpx 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+  max-height: 500rpx;
+  overflow-y: scroll;
+}
+.shopCartList .list .right .price {
+  color: #999;
+  font-size: 24rpx;
+}
+.shopCartList .list .right .l1 {
+  font-size: 36rpx;
+  color: #f60;
+  margin-right: 10rpx;
+}
+.shopCartList .list .right .jian, .shopCartList .list .right .add {
+  color: #333;
+  font-size: 36rpx;
+}
+.shopCartList .list .right .number {
+  margin: 0 10rpx;
+  color: #999
+}

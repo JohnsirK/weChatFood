@@ -1,0 +1,26 @@
+function imgPath(e) {
+  var suf
+  if(!e) {
+    return 'http://elm.cangdu.org/img/default.jpg'
+  }
+  if(e.indexOf('jpeg') !== -1) {
+    suf = '.jpeg'
+  } else {
+    suf = '.png'
+  }
+  var url = '/' + e.substring(0, 1) + '/' + e.substring(1, 3) + '/' + e.substring(3) + suf
+  return 'https://fuss10.elemecdn.com/' + url
+}
+// num1 为要格式化的数值, num2 为保留的位数
+function toFixed(num1, num2) {
+  if (typeof (num1) == 'undefined') {
+    return num1
+  } else {
+    return Number(num1.toFixed(num2))
+  }
+  
+}
+module.exports = {
+  imgPath: imgPath,
+  toFixed: toFixed
+}

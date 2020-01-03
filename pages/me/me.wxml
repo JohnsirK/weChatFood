@@ -1,0 +1,64 @@
+<!--pages/me/me.wxml-->
+<view class="container">
+  <view class="topUser">
+    <image src = "{{user.avatar ? imgUrl + user.avatar : ''}}" mode = "widthFix"></image>
+    <text class = "name" wx:if = "{{user.id}}">{{user.username}}</text>
+    <text class="name" wx:else catchtap = "goLogin">登录</text>
+    <view class="contact">
+      <view class="phone">
+        <text class="iconfont icon-dianhua"></text>
+        {{user.mobile ? user.mobile : '暂未设置手机号'}}
+      </view>
+      |
+      <view class="changeImg"> 
+        <text class="iconfont icon-icon--copy"></text>
+        {{user.email ? user.email : '暂无设置邮箱'}} 
+      </view>
+    </view>
+  </view>
+  <view class="threeDivAll">
+    <view class="odiv">
+      <view class="h4">
+        <text class="b" style = "color: #f90">{{user.balance ? user.balance : '0.00'}}</text>
+        元
+      </view>
+      <text class="font">我的余额</text>
+    </view>
+    <view class="odiv">
+      <view class="h4">
+        <text class="b" style = "color: #ff5f3e">{{user.gift_amount ? user.gift_amount : 0}}</text>
+        个
+      </view>
+      <text class="font">我的优惠</text>
+    </view>
+    <view class="odiv">
+      <view class="h4">
+        <text class="b" style = "color: #6ac20b">{{user.point ? user.point : 0}}</text>
+        分
+      </view>
+      <text class="font">我的积分</text>
+    </view>
+  </view>
+  <view class="newList">
+    <view class="li" bindtap = "goExplain">
+      <text class="iconfont leftIcon icon-wode"></text>
+      <text class="name">服务中心</text>
+      <text class="iconfont rightIcon icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing"></text>
+    </view>
+    <view class="li" bindtap = "goChangePwd">
+      <text class="iconfont leftIcon icon-xiugaimima"></text>
+      <text class="name">修改密码</text>
+      <text class="iconfont rightIcon icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing"></text>
+    </view>
+    <view class="li">
+      <text class="iconfont leftIcon icon-huiyuanqia_xianxing"></text>
+      <text class="name">饿了么会员卡</text>
+      <text class="iconfont rightIcon icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing"></text>
+    </view>
+    <view class="li">
+      <text class="iconfont leftIcon icon-xiazai"></text>
+      <text class="name">下载App</text>
+      <text class="iconfont rightIcon icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing"></text>
+    </view>
+  </view>
+</view>

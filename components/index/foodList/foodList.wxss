@@ -1,0 +1,62 @@
+/* components/index/foodList/foodList.wxss */
+@import './../../../app.wxss'
+.foodList {
+  background: #fff; 
+  padding: 0 20rpx;
+}
+.foodList .li {
+  padding: 20rpx 0;
+  display: flex;
+  border-bottom: 2rpx solid #fbf1f1;
+}
+.foodList .li:last-child {
+  border-bottom: none;
+}
+.foodList .li image {
+  width: 120rpx;
+  display: block;
+  height: 120rpx;
+}
+.foodList .li .left {
+  margin-left: 10rpx;
+  width: calc(100% - 130rpx);
+}
+.foodList .li .h4, .foodList .li .h5, .foodList .li .h6 {
+  display: flex;
+  align-items: center;
+}
+.foodList .li .h4 .tag {
+  background: red;
+  border-radius: 0 20rpx 20rpx 0;
+  color: #fff;
+  font-size: 24rpx;
+  padding: 6rpx 10rpx;
+  margin-right: 10rpx;
+}
+.foodList .li .h4 .title {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+}
+.foodList .li .h5,.foodList .li .h5 .rageView{
+  display: flex;
+  align-items: center;
+} 
+.foodList .li .h5, .foodList .li .right .h5 {
+  margin: 4rpx 0; 
+}
+.foodList .li .right {
+  margin-left: auto;
+}
+.fenlei text {
+  margin:0 6rpx;
+}
+.zhuans {
+  background: #62b9f9;
+  padding: 6rpx;
+  color: #fff;
+  border-radius: 6rpx;
+}
+.fs10 {
+  font-size: 20rpx;
+}

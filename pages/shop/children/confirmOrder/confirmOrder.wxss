@@ -1,0 +1,450 @@
+/* pages/confirmOrder/confirmOrder.wxss */
+.container {
+  margin-bottom: 100rpx;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.bg0 {
+  background: #fff;
+  box-shadow: 0 4rpx 20rpx rgba(100, 100, 100, .1);
+}
+.addressSelect {
+  padding: 30rpx 20rpx;
+  border-bottom: 4rpx dashed #beccf7;
+}
+.noAddress .h3 {
+  font-size: 28rpx;
+  color: #999;
+  margin-left: 20rpx;
+}
+.noAddress .rt {
+  margin-left: auto;
+}
+.noAddress {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.noAddress .iconfont {
+  font-size: 32rpx;
+  color: #666
+}
+.haveAddress {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.haveAddress .lt {
+  font-size: 48rpx;
+  color: red
+}
+.haveAddress .addressInfo {
+  width: calc(100% - 160rpx);
+  margin: 0 20rpx;
+}
+.haveAddress .tags{
+  margin-left: auto;
+}
+.haveAddress .tags .tg {
+  font-size: 24rpx;
+  background: #e4e1de;
+  padding: 6rpx 10rpx;
+  color: #777
+}
+.addressInfo h3 {
+  font-size: 28rpx;
+}
+.addressInfo .dh, .addressInfo .phone {
+  color: #999;
+  font-size: 24rpx;
+}
+.addressInfo .name, .addressInfo .xs {
+  color: #666
+}
+.addressInfo .xs {
+  margin: 0 20rpx 0 8rpx;
+}
+.addressInfo .h4 {
+  font-size: 24rpx;
+  color: #999;
+  margin: 6rpx 0;
+}
+.addressInfo .h4 .hx {
+  margin: 0 10rpx;
+}
+.okOrder {
+  margin: 30rpx 0;
+  border-top: 4rpx dashed #beccf7;
+  padding: 30rpx;
+  position: relative;
+}
+.okOrder .lIcon, .okOrder .rIcon{
+  position: absolute;
+  width: 60rpx;
+  height: 60rpx;
+  background: #efefef;
+  border-radius: 60rpx;
+  top: 40rpx;
+  box-shadow: inset 0 2rpx 10rpx rgba(0, 0, 0, 0.3);
+   
+}
+.okOrder .lIcon {
+  left: -40rpx;
+}
+.okOrder .rIcon {
+  right: -40rpx;
+}
+.okOrder .topShop{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.okOrder .topShop image {
+  width: 100rpx;
+  height: 100rpx;
+  display: block;
+  margin-right: 20rpx;
+}
+.okOrder .shopList {
+  margin: 30rpx 0 0 0;
+}
+.okOrder .shopList .li{
+  border-bottom: dotted 2rpx #ccc;
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20rpx 10rpx;
+}
+.okOrder .shopList .title {
+  width: calc(100% - 200rpx);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 28rpx;
+  color: #666
+}
+.okOrder .shopList .rl{
+  margin-left: auto;
+  width: 200rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.okOrder .shopList .num, .okOrder .shopList .price {
+  display: flex;
+  align-items: center;
+  color: #999;
+  font-size: 24rpx;
+}
+.okOrder .shopList .num {
+  margin-right: 10rpx;
+}
+.okOrder .psf {
+  margin-top: 30rpx;
+  margin-bottom: 10rpx;
+}
+.okOrder .psf, .okOrder .odprice{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.okOrder .psf, .okOrder .odprice {
+  font-size: 28rpx;
+  color: #999;
+}
+.okOrder .goMoney {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  font-size: 40rpx;
+  color: #e81919
+}
+.okOrder .goMoney text {
+  font-size: 52rpx;
+}
+.songEnd {
+  border-left: 6rpx solid #3190e8;
+  padding: 30rpx;
+}
+.songEnd .h3 {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+.songEnd .h4 {
+  color: #f60;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+}
+.songEnd .h4 .jg {
+  margin: 0 10rpx;
+}
+.songEnd .h4 .tag {
+  background: #f60;
+  color: #fff;
+  padding: 6rpx 10rpx;
+  border-radius: 4rpx;
+  margin-left: auto;
+}
+.payMethod {
+  margin: 30rpx 0;
+  padding: 20rpx 30rpx;
+  display: flex;
+  align-items: center;
+}
+.payMethod .rl {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.payMethod .select {
+  margin-right: 10rpx;
+  font-size: 28rpx;
+  color: #666;
+  display: block;
+  margin-top: -6rpx;
+  align-items: center;
+}
+.payMethod .rl .iconfont {
+  font-size: 28rpx;
+  color: #999
+}
+.slideUp {
+  position: fixed;
+  z-index: 3;
+  bottom:0;
+  width: 100%;
+}
+.slideLeft {
+  position: fixed;
+  left:0;
+  top:0;
+  height: 100%;
+  width: 100%;
+}
+.slideLeft .van-transition {
+  height: 100%;
+}
+.payList {
+  background: #fff;
+  padding: 10rpx 30rpx 30rpx 30rpx;
+}
+.payList .li {
+  border-bottom: 2rpx solid #dedede;
+  padding: 20rpx 0;
+  color: #666;
+  display: flex;
+  font-size: 28rpx;
+  align-items: center;
+}
+.payList .li text {
+  font-size: 36rpx;
+  color: #f60;
+  margin-left: auto;
+}
+.payList .li:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.orderBz {
+  margin: 30rpx 0;
+  padding: 20rpx 30rpx;
+  display: flex;
+  align-items: center;
+}
+.orderBz .rl {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.orderBz .text {
+  margin-right: 10rpx;
+  font-size: 28rpx;
+  color: #666;
+  display: block;
+  margin-top: -6rpx;
+  align-items: center;
+}
+.orderBz .rl .iconfont {
+  font-size: 28rpx;
+  color: #999
+} 
+.footer {
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  background: #ccc;
+  width: 100%;
+  left: 0;
+  display: flex;
+  align-items:center; 
+  color: #666
+}
+.footer .dzf {
+  margin-left: 30rpx;
+}
+.footer .dzf text {
+  color: #f60;
+  font-size: 40rpx;
+}
+.footer .orderBtn {
+  background: #f60;
+  color: #fff;
+  font-size: 32rpx;
+  height: 100%;
+  padding: 0 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+.remakeList {
+  padding: 10rpx 30rpx 30rpx 30rpx;
+  background: #fff;
+}
+.remakeList .h3 {
+  color: #333;
+  font-size: 28rpx;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #dedede;
+}
+.checkList {
+  padding: 20rpx 0;
+  position: relative;
+}
+.checkList label {
+  margin: 10rpx;
+  display: inline-block;
+  font-size: 24rpx;
+  color: #999
+}
+
+.remakeList .btn {
+  color: #fff;
+  width: 100%;
+  padding: 20rpx 0;
+  background: #f60;
+  font-weight: normal;
+}
+.moreRemake {
+  padding: 20rpx 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid #dedede;
+  margin-bottom: 30rpx;
+}
+.moreRemake .more {
+  position: absolute;
+  left: 0;
+  color: #333;
+  font-size: 28rpx;
+}
+.moreRemake input.bz{
+  font-size: 28rpx;
+  padding: 0 0 0 140rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.arsSelect {
+  padding: 10rpx 30rpx 30rpx 30rpx;
+  background: #fff;
+}
+.arsSelect .h3 {
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+  margin-top: 10rpx;
+  border-bottom: 2rpx solid #dedede;
+}
+.arsSelect .namePhone {
+  font-size: 28rpx;
+  color: #333;
+}
+.arsSelect .namePhone .phone {
+  margin-left: 20rpx;
+  font-size: 24rpx;
+  color: #666
+}
+.arsSelect .adsText {
+  font-size: 24rpx;
+  color: #999;
+  margin: 10rpx 0;
+}
+.arsSelect .adsText text {
+  margin: 0 10rpx;
+}
+/* .maxHeight {
+  max-height: 80%;
+  min-height: 40%;
+} */
+.arsSelect .li {
+  margin-bottom: 30rpx;
+}
+.newBtn {
+  margin: 20rpx 0;
+  background: #f60;
+  color: #fff;
+  font-weight: normal;
+  padding: 16rpx 0;
+}
+.newForm {
+  height: 100%;
+  background: #fff;
+  position: relative;
+}
+.iconRight {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  font-size: 40rpx;
+  color: #333;
+}
+.addform {
+  padding: 60rpx 20rpx 30rpx 20rpx;
+}
+.addform .li{
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  border-bottom: 2rpx solid #f5f5fb;
+}
+.addform .li .left {
+  width: 160rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+.addform .li .left text {
+  color: red
+}
+.addform .li .input {
+  width: calc(100% - 170rpx);
+  margin-left: 10rpx;
+}
+.addform .li .input input {
+  width: 100%;
+  font-size: 28rpx;
+  color: #999
+}
+.radioGroup {
+  display: flex;
+  align-items: center;
+}
+.radioGroup .radio {
+  margin-right: 20rpx;
+  font-size: 28rpx;
+  color: #666
+}
+.addBtn {
+  margin-top: 30rpx;
+  background: #f60;
+  font-weight: normal;
+  color: #fff;
+  padding: 16rpx 0;
+}
+.picker {
+  color: #666;
+  font-size: 28rpx;
+}

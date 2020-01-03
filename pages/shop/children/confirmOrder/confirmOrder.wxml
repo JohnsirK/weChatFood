@@ -1,0 +1,256 @@
+<!--pages/confirmOrder/confirmOrder.wxml-->
+<!-- 确认订单 -->
+<view class="container">
+  <view class="addressSelect bg0" >
+    <view bindtap = "changeAddress">
+      <block wx:if = "{{pickAddressInfo && pickAddressInfo.id}}">
+        <view class="haveAddress" >
+          <wxs src = "../../../../utils/filter.wxs" module = "tools"></wxs>
+          <text class="iconfont icon-dizhi lt"></text>
+          <view class="addressInfo">
+            <view class="h3">
+              <text class = "name">{{pickAddressInfo.name}}</text>
+              <text class="xs">{{tools.isSex(pickAddressInfo.sex)}}</text>
+              <text class="iconfont icon-dianhua dh"></text>
+              <text class="phone">{{pickAddressInfo.phone}}</text>
+            </view>
+            <view class="h4">
+              <text class="ars">{{pickAddressInfo.address}}</text>
+              <text class="hx">-</text>
+              <text class="arsinfo">{{pickAddressInfo.address_detail}}</text>
+            </view>
+          </view>
+          <view class="tags">
+            <text class="tg">{{tools.isTags(pickAddressInfo.tag_type)}}</text>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="noAddress">
+          <text class="iconfont lt icon-dizhi"></text>
+          <text class="h3">请选择一个收货地址</text>
+          <text class="iconfont rt icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing"></text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <van-overlay show = "{{addressShow}}" bind:click = "addressHide"></van-overlay> 
+  <van-transition name = "slide-up" class = "slideUp maxHeight" show = "{{addressShow}}">
+    <view class="arsSelect">
+      <view class="haveAdr">
+        <view class="h3">当前地址</view> 
+        <block wx:if = "{{pickAddressInfo && pickAddressInfo.id}}">
+          <view class="li">
+            <view class="namePhone">
+              <text class = "name">{{pickAddressInfo.name}}</text>
+              <text class = "phone">{{pickAddressInfo.phone}}</text>
+            </view>
+            <view class="adsText">
+              {{pickAddressInfo.address}}<text>-</text>{{pickAddressInfo.address_detail}}
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="noData" >
+            <text class = "iconfont icon-kulian"></text>还未选择当前地址
+          </view>
+        </block>
+        <view class="h3">其他可选地址列表</view>
+        <block wx:if = "{{getAddressesList.length > 0}}">
+          <view class="li" wx:for = "{{getAddressesList}}" wx:for-item = "li" wx:key = "unique" bindtap = "confirmChange" data-item = "{{li}}">
+            <view class="namePhone">
+              <text class = "name">{{li.name}}</text>
+              <text class = "phone">{{li.phone}}</text>
+            </view>
+            <view class="adsText">
+              {{li.address}}<text>-</text>{{li.address_detail}}
+            </view>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="noData">
+            <text class = "iconfont icon-kulian"></text>地址列表加载中...
+          </view>
+        </block>
+        <button class = "newBtn" bindtap = "newAddress">新增地址</button>
+      </view>
+    </view>
+  </van-transition>
+  <van-transition name = "fade-left" class = "slideLeft hei" style = "z-index: {{zindex}};" show = "{{newAdrShow}}">
+    <view class="newForm">
+      <text class="iconRight iconfont icon-cuo" bindtap = "closeNewAdd"></text>
+      <view class="addform">
+        <view class="li">
+          <view class="left">
+            <text>*</text>姓名：
+          </view>
+          <view class="input">
+            <input type="text" placeholder="请输入收货人姓名" bindinput = "enterName"/>
+          </view>
+        </view>
+        <view class="li">
+          <view class="left">
+            <text>*</text>性别:
+          </view>
+          <view class="input">
+            <radio-group class = "radioGroup" bindchange = "sexRadio">
+              <radio class = "radio" wx:for = "{{sexList}}" wx:key = "unique" value = "{{item.value}}">
+                {{item.name}}
+              </radio>
+            </radio-group>
+          </view>
+        </view>
+        <view class="li">
+          <view class="left">
+            <text>*</text>电话：
+          </view>
+          <view class="input">
+            <input type="text" placeholder="请输入收货人电话" bindinput = "enterPhone"/>
+          </view>
+        </view>
+        <view class="li">
+          <view class="left">
+            <text>*</text>固定电话：
+          </view>
+          <view class="input">
+            <input type="text" placeholder="请输入收货人固定电话" bindinput = "enterPhoneTwo"/>
+          </view>
+        </view>
+        <view class="li">
+          <view class="left">
+            <text>*</text>地址：
+          </view>
+          <view class="input">
+            <picker mode = "region" bindchange = "pickRegion" value = "{{region}}" custom-item="{{customItem}}">
+             <view class="picker">
+               {{region[0]}}, {{region[1]}}, {{region[2]}}
+             </view> 
+            </picker>
+          </view>
+        </view>
+        <view class="li">
+          <view class="left">
+            <text>*</text>详细地址：
+          </view>
+          <view class="input">
+            <input type="text" placeholder="请输入收货人详细地址" bindinput = "enterAddressInfo"/>
+          </view>
+        </view>
+        <view class="li">
+          <view class="left">
+            <text>*</text>标签：
+          </view>
+          <view class="input">
+            <input type="text" placeholder="请输入标签. 如: 家 / 公司 / 学校" bindinput = "enterTags"/>
+          </view>
+        </view>
+        <view class="li">
+          <view class="left">
+            <text>*</text>标签类型：
+          </view>
+          <view class="input">
+            <radio-group class = "radioGroup" bindchange = "tagsRadio">
+              <radio class = "radio" wx:for = "{{tagList}}" wx:key = "unique" value = "{{item.value}}">
+                {{item.name}}
+              </radio>
+            </radio-group>
+          </view>
+        </view>
+        <button class = "addBtn" bindtap = "addBtn">
+          确定新增
+        </button>
+      </view>
+    </view>
+  </van-transition>
+  <view class="okOrder bg0">
+    <text class="lIcon"></text>
+    <text class="rIcon"></text>
+    <view class="topShop">
+      <image src = "{{imgUrl + shopSuccess.cart.restaurant_info.image_path}}" mode = "widthFix" class = "img"></image>
+      <text class="name">{{shopSuccess.cart.restaurant_info.name}}</text>
+    </view>
+    <view class="shopList">
+      <block wx:for = "{{shopSuccess.cart.groups[0]}}" wx:key = "unique" wx:for-item = "i">
+        <view class="li" >
+          <text class="title">{{i.name}}</text>
+          <view class="rl">
+            <view class="num">x<text>{{i.quantity}}</text></view>
+            <view class="price">￥<text>{{i.price}}</text></view>
+          </view>
+        </view>
+      </block>
+      <view class="psf">
+        配送费: ￥<text>{{shopSuccess.cart.deliver_amount}}</text>
+      </view>
+      <view class="odprice">
+        餐盒费: ￥<text>{{shopSuccess.cart.extra[0].price}}</text>
+      </view>
+      <view class="odprice">
+        订单: ￥<text>{{allPrice}}</text>
+      </view>
+      <view class="goMoney">
+        待支付: ￥<text>{{shopSuccess.cart.total}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="songEnd bg0">
+    <view class="h3">送达时间</view>
+    <view class="h4">
+      {{shopSuccess.invoice.status_text}}
+      <text class = "jg">|</text>
+      预计{{shopSuccess.delivery_reach_time}}送达
+      <text class="tag" style = "background: #{{shopSuccess.cart.restaurant_info.delivery_mode.color}}">{{shopSuccess.cart.restaurant_info.delivery_mode.text}}</text>
+    </view>
+  </view>
+  
+  <!-- 支付方式 -->
+  <view class="payMethod bg0" bindtap = "changePay">
+    <text class = "title">支付方式</text>
+    <view class="rl">
+      <text class="select">{{payName}}</text>
+      <text class="iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing"></text>
+    </view>
+  </view>
+  <van-transition class="slideUp" name = "slide-up" show="{{ paySelect }}">
+    <view class = "payList">
+      <view class="li" wx:for = "{{payList}}" wx:key = "unique" catchtap = "selectIndex" data-index = "{{index}}" data-item = "{{item}}">
+        {{item}}
+        <text class="iconfont icon-duihao" hidden = "{{!(payIndex == index)}}"></text>
+      </view>
+    </view>
+  </van-transition>
+  <van-overlay show = "{{paySelect}}" bind:click = "onClickHide" />
+  <!-- 订单备注 -->
+  <view class="orderBz bg0" bindtap = "showRemake">
+    <text class="title">订单备注</text>
+    <view class="rl">
+      <text class = "text">{{remarkText}}</text>
+      <text class="iconfont icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing"></text>
+    </view>
+  </view>
+</view>
+<van-transition class = "slideUp" name = "slide-up" show = "{{remakeIsShow}}">
+  <view class="remakeList">
+    <view class="h3">
+      快速备注
+    </view>
+    <view class="checkList">
+      <checkbox-group bindchange = "remakeSelect">
+        <label class = "checkbox" wx:for = "{{remakeItems}}" wx:key = "unique">
+          <checkbox value = "{{item}}">{{item}}</checkbox>
+        </label>
+      </checkbox-group>
+    </view>
+    <view class="moreRemake">
+      <text class = "more">其他备注</text>
+      <input class = "bz" type="text" placeholder="如有其他备注,请留言" bindinput = "remakeInput"/>
+    </view>
+    <button class = "btn" bindtap = "selectOk">确定</button>
+  </view>
+</van-transition>
+<van-overlay show = "{{remakeIsShow}}" bind:click = "hideRemake"></van-overlay>
+<!-- 底部 -->
+<view class="footer">
+  <view class="dzf">待支付: ￥<text>{{shopSuccess.cart.total}}</text></view>
+  <text class="orderBtn" bindtap = "endOrder">确认下单</text>
+</view> 

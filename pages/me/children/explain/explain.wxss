@@ -1,0 +1,47 @@
+/* pages/me/children/explain/explain.wxss */
+.serverList {
+  padding: 0 20rpx;
+  background: #fff;
+}
+.serverList .li {
+  padding: 20rpx 0;
+}
+.serverList .li {
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #fdeeee;
+  display: flex;
+  align-items: center;
+}
+.serverList .li .leftIcon {
+  margin-right: 10rpx;
+  color: #666;
+  font-size: 28rpx;
+}
+.serverList .li .name {
+  font-size: 28rpx;
+  color: #666;
+}
+.serverList .li .rightIcon {
+  margin-left: auto;
+  color: #999;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.divBlock {
+  width: 120rpx;
+  height: 120rpx; 
+  background-color: #fff;
+}
+.fiexdCon {
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  background: #fff;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}

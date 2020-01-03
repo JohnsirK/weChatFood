@@ -1,0 +1,33 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <view class="imgBox">
+    <image src = "./../images/llogin.5258be3.png" mode = "widthFix" class = "logoImg"></image>
+  </view>
+  <view class="inputText">
+    <view class="inputBox">
+      <input type="text" placeholder="请输入用户名" bindfocus = "focusHandler" data-index = "1" bindblur = "focusCencel" bindinput = "saveName" maxlength="20" minlength = "4"/>
+      <text class = "iconfont icon-wode"></text>
+      <text class = "t1 {{1 == indexAni ? 'ani0' : 'ani1'}}" ></text>
+    </view>
+    <view class="inputBox">
+      <input type="text" placeholder="请输入密码" bindfocus = "focusHandler" data-index = "2" bindblur = "focusCencel" maxlength="20" minlength = "4" bindinput = "savePwd" password="true"/>
+      <text class = "iconfont icon-mima"></text>
+      <text class = "t1 {{2 == indexAni ? 'ani0' : 'ani1'}}" ></text>
+    </view> 
+    <view class="inputBox">
+      <input type="text" placeholder="请输入验证码" bindfocus = "focusHandler" data-index = "3" bindblur = "focusCencel" maxlength="4" bindinput = "saveCode"/>
+      <text class = "iconfont icon-yanzhengma"></text>
+      <text class = "t1 {{3 == indexAni ? 'ani0' : 'ani1'}}" ></text>
+      <block wx:if = "{{!captchaData}}">
+        <view class="yzm"><text class = "tc iconfont icon-icon-"></text></view>
+      </block>
+      <block wx:else>
+        <image catchtap = "changeCode" src = "{{captchaData}}" mode = "widthFix" class = "yzm"></image>
+      </block>
+    </view>
+    <view class="inputBtn">
+      <button bindtap = "goLogin">登录</button>
+      <button>重置</button> 
+    </view>
+  </view>
+</view>

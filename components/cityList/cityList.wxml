@@ -1,0 +1,7 @@
+<!--components/cityList/cityList.wxml-->
+<view class="list hot" >
+  <view class="title">
+    热门城市
+  </view>
+  <text class="li" wx:for = "{{dataJson}}" wx:for-index = "index" wx:for-item = "item" wx:key = "unique">{{item.name}}</text>
+</view>

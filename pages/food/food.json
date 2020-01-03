@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "food-list": "./../../components/index/foodList/foodList"
+  }
+}

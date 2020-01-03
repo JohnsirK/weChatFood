@@ -1,0 +1,32 @@
+/* custom-tab-bar/index.wxss */
+/* 自定义组件内没法自动引入全局app.wxss样式.必须手动引入 */
+@import './../app.wxss'
+.tab-bar {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  border-top: 2rpx solid #ebedf0;
+  background: #fafafa; 
+  z-index: 998;
+}
+
+.tab-bar .li {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 999;
+}
+.tab-bar .li .iconfont {
+  color: #7d7e80;
+  font-size: 32rpx;
+}
+.tab-bar .li .text {
+  font-size: 24rpx;
+  color: #7d7e80;
+  margin-top: 6rpx;
+}
+.tab-bar .colorSelected .iconfont, .tab-bar .colorSelected .text{
+  color: #1989fa
+}

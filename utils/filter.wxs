@@ -1,0 +1,41 @@
+// 筛选
+// 判断星级
+var isRate = function (num) {
+  // 获取当前传入的数字分割之后的数组
+  var arr = num.toString().split('.')
+  console.log(arr)
+}
+// 判断标签
+var isTags = function (num) {
+  var str = ''
+  switch(num) {
+    case 2:
+      str = '家'
+      break
+    case 3:
+      str = '学校'
+      break
+    case 4:
+      str = '公司'
+      break
+  }
+  return str
+}
+// 判断性别
+var isSex = function (num) {
+  var str = ''
+  switch(num) {
+    case 1:
+      return '先生'
+      break
+    case 2:
+      return '女士'
+      break
+  }
+}
+// 导出
+module.exports = {
+  isRate: isRate,
+  isTags: isTags,
+  isSex: isSex
+}

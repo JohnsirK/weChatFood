@@ -1,0 +1,564 @@
+/* pages/shop/shop.wxss */
+.topShopInfo {
+  height: 260rpx; 
+  position: relative;
+}
+.topShopInfo .bgImg {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 260rpx;
+  filter: blur(20rpx);
+  z-index: -1;
+}
+.topShopInfo .bgImg image {
+  width: 100%;
+  height: 260rpx;
+  display: block;
+  overflow: hidden;
+}
+.topShopInfo .shopInfo {
+  height: calc(100% - 60rpx);
+  background: rgba(0, 0, 0, .3);
+  padding: 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+.topShopInfo .txt {
+  width: calc(100% - 120rpx);
+  margin-left: 16rpx;
+}
+.topShopInfo .txt .h4 {
+  display: flex;
+  align-items: center;
+}
+.topShopInfo .txt .h4 .in{
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: bold;
+  font-family: "微软雅黑"; 
+  margin-right: 10rpx;
+}
+.topShopInfo .txt .h4 .zhuan {
+  background: red;
+  color: #fff;
+  font-size: 24rpx;
+  margin-right: 10rpx;
+  padding: 6rpx 10rpx;
+}
+.topShopInfo .txt .right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.topShopInfo .txt .h4 .fo {
+  font-size: 24rpx;
+  margin: 0 4rpx;
+  color: #fff;
+  padding: 6rpx 10rpx;
+  background: #ccc;
+  border-radius: 4rpx;
+  display: block;
+}
+.topShopInfo .txt .h5 {
+  margin: 8rpx 0;
+  font-size: 24rpx;
+  
+  color: #fff;
+}
+.topShopInfo .txt .h6 {
+  font-size: 24rpx;
+  color: #fff;
+}
+.imgTx {
+  width: 120rpx;
+  height: 120rpx;
+  display: block;
+  border: 4rpx solid #fff
+}
+.topShopInfo .van-notice-bar {
+  height: 60rpx;
+}
+.shopMenu {
+  height: calc(100% - 260rpx);
+  z-index: 1;
+  position: relative;
+  background: #fff;
+}
+.tabMenu {
+  background: #efefef;
+  height: 100%;
+  position: absolute;
+  background: #fff;
+  width: 100%;
+}
+.van-tabs, .van-tabs__content, .van-tab__pane--active {
+  height: 100% !important
+}
+.van-tabs__content {
+  height: calc(100% - 44px) !important;
+  overflow: hidden;
+}
+.van-tab {
+  background: #eee;
+}
+.van-tab--active {
+  background: #fff;
+}
+.tabDiv  {
+  height: 100%;
+}
+.allMenu {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+
+.allMenu .rightFood {
+  width: calc(100% - 200rpx);
+  height: 100%;
+  overflow-y: auto;
+}
+.srcollLeft {
+  width: 200rpx;
+}
+
+/* 自写tab样式 */
+.shopMenu .weTabsAll {
+  height: 90rpx;
+  background: #eee;
+  display: flex;
+}
+.shopMenu .weTabsAll .weTab {
+  padding:0 20rpx;
+  flex: 1;
+  border-bottom: 4rpx solid #eee;
+}
+.shopMenu .weTabsAll .cur {
+  border-bottom: 4rpx solid red;
+  background: #fff;
+}
+.shopMenu .weConsAll {
+  height: calc(100% - 94rpx);
+  background: #fff;
+}
+
+
+
+
+
+/* 右侧样式 */
+.rightList .h2 {
+  display: block;
+  border-bottom: 2rpx solid #efefef;
+  color: #666;
+  font-size: 32rpx;
+  padding: 20rpx 0;
+  text-align: center;
+  position: relative;
+}
+.rightList .h2::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  background: linear-gradient(to left, #bba9a9, #efeaea);
+  width: 100rpx;
+  height: 2rpx;
+}
+.rightList .h2::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15%;
+  background: linear-gradient(to right, #bba9a9, #efeaea);
+  width: 100rpx;
+  height: 2rpx;
+}
+.rightList .li {
+  display: flex;
+  padding: 20rpx;
+  box-sizing: border-box;
+  align-items: center;
+  border-bottom: 2rpx solid #efefef;
+  position: relative;
+}
+.rightList .li image {
+  width: 140rpx;
+  height: 140rpx;
+  display: block;
+}
+.rightList .li .txt {
+  width: calc(100% - 160rpx);
+  margin-left: 20rpx;
+}
+.rightList .txt .h5 {
+  color: #999;
+  font-size: 24rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap
+}
+.rightList .txt .h3 {
+  color: #333;
+  font-size: 28rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap
+}
+.rightList .txt .h4 {
+  color: #666;
+  margin: 6rpx 0;
+  font-size: 28rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap
+}
+.rightList .txt .money {
+  color: #f60;
+  font-size: 40rpx;
+}
+.rightList .txt .money .l {
+  font-size: 28rpx;
+}
+.rightList .numMenu {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  display: flex;
+  align-items: center; 
+  z-index: 1;
+}
+.rightList .numMenu .iconfont {
+  font-size: 40rpx;
+  color: #d8731a
+}
+.rightList .numMenu .num {
+  margin: 0 10rpx;
+  color: #999;
+  font-size: 28rpx;
+}
+.rightList .numMenu .noShow {
+  display: flex;
+  align-items: center;
+}
+.sepc {
+  background: #57ade0;
+  padding: 4rpx 10rpx;
+  border-radius: 6rpx;
+  color: #fff;
+  font-size: 28rpx;
+}
+.showSpec {
+  position: fixed;
+  top: 10%;
+  left: 15%;
+  width: 70%;
+  height: 300rpx;
+  background: #b5b5b5;
+  border-radius: 10rpx;
+  z-index: 9;
+  box-shadow: 0 4rpx 20rpx rgba(100, 100, 100, .1);
+}
+.showSpec .title {
+  display: block;
+  padding: 20rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+.showSpec .bot {
+  position: absolute;
+  bottom: 0;
+  left:0;
+  padding: 20rpx;
+  text-align: center;
+  width: 100%;
+  border-radius:0 0 10rpx 10rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.showSpec .bot text {
+  padding: 8rpx 20rpx;
+  color: #333;
+  font-size: 28rpx;
+  background: #eaeaea;
+  border-radius: 8rpx;
+}
+.showSpec .bot .btnOk {
+  background: #57ade0;
+  margin-right: 20rpx;
+}
+.spanList {
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+}
+.spanList .span {
+  background: #fff;
+  padding: 6rpx 16rpx;
+  color: #333;
+  font-size: 28rpx;
+  margin: 0 6rpx;
+  border-radius: 6rpx;
+}
+.spanList .cur {
+  background: #f60;
+  color: #fff;
+}
+
+/* 左侧 */
+.leftMenu {
+  width: 200rpx;
+  background: #eee;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 20rpx 0;
+  /* overflow-y: auto; */
+}
+.leftMenu .leftLi {
+  height: 80rpx;
+  border-left: 4rpx solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 20rpx;
+  position: relative;
+}
+.leftMenu .rightIcon {
+  position: absolute;
+  top:8rpx;
+  right: 8rpx;
+  background: red;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 30rpx;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+}
+.leftMenu .leftLi:last-child, .rightList:last-child {
+  margin-bottom: 100rpx;
+}
+.leftMenu .cur {
+  border-left: 4rpx solid #57ade0 !important;
+  background: #fff;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.scrores {
+  height: 100%;
+  background: #efefef;
+}
+.scrores .topScores{
+  background: #fff;
+  height: 200rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  box-shadow: 0 4rpx 20rpx rgba(100, 100, 100, .2);
+}
+.fc {
+  display: flex;
+  align-items: center;
+}
+.f60 {
+  color: #f60
+}
+.f999 {
+  color: #999
+}
+.topScores .left {
+  width: 200rpx;
+  box-sizing: border-box;
+  border-right: 2rpx solid #eaeaea;
+  display: flex;
+  align-items: center;
+  padding: 12rpx;
+  flex-direction: column
+}
+.topScores .right {
+  width: calc(100% - 210rpx);
+  margin-left: 10rpx;
+  display: flex;
+  flex-direction: column;
+  padding: 8rpx 30rpx;
+  box-sizing: border-box;
+}
+.topScores text {
+  display: block;
+  text-align: center;
+}
+.topScores .left .h4 {
+  font-size: 40rpx;
+}
+.topScores .left .h5 {
+  font-size: 28rpx;
+  color: #666;
+  margin: 4rpx 0;
+}
+.topScores .left .h6 {
+  font-size: 28rpx;
+  color: #999
+}
+.topScores .right .h4 {
+  color: #333;
+  font-size: 28rpx;
+  width: 100%;
+}
+.topScores .right .h4:nth-child(2) {
+  margin: 8rpx 0;
+}
+.botScores {
+  margin-top: 20rpx;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 20rpx;
+  margin-bottom: 100rpx;
+}
+.scoresList text{
+  background: #cfe5fb;
+  color: #666;
+  font-size: 24rpx;
+  padding: 8rpx 12rpx;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+  display: inline-block;
+}
+.scoresList text.cur {
+  background: #57ade0;
+  color: #fff;
+}
+.scoresList text.cur1 {
+  background: #ccc;
+}
+.replyList .title {
+  display: block;
+  margin: 20rpx 0 0 0;
+}
+.replyList .list {
+  border-bottom: 2rpx solid #f1ecec;
+  display: flex;
+  padding: 30rpx 0;
+}
+.replyList .list .leftimg {
+  width: 120rpx;
+  height: 120rpx;
+  display: block;
+}
+.replyList .list .txt {
+  width: calc(100% - 130rpx);
+  margin-left: auto;
+  
+}
+.replyList .list .h3 {
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #666;
+}
+.replyList .list .h3 .time {
+  color: #999;
+  font-size: 24rpx;
+  margin-left: auto;
+}
+.replyList .list .h4 {
+  font-size: 24rpx;
+  color: #777
+}
+.replyList .list .h4 text {
+  color: #f60
+}
+.replyList .list .h5 {
+  display: flex;
+  align-items: center;
+}
+.replyList .list .h5 text{
+  border: 2rpx solid #dedede;
+  box-sizing: border-box;
+  width: 160rpx;
+  height: 40rpx;
+  display: block;
+  padding: 0 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #666;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  margin-right: 6rpx;
+}
+.listimg {
+  display: flex;
+  align-items: center;
+  margin: 20rpx 0;
+  font-size: 28rpx;
+  color: #333;
+}
+.shopInfoText {
+  height: 100%;
+  background: #efefef;
+  margin-bottom: 100rpx;
+  width: 100%;
+}
+.topInfo, .foodInfo, .centerInfo {
+  background: #fff;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(100, 100, 100, .2);
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.shopInfoText .h4 {
+  display: block;
+  border-bottom: 2rpx solid #dedede;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+} 
+.shopInfoText .p {
+  font-size: 24rpx;
+  color: #666;
+  margin: 12rpx 0;
+}
+.shopInfoText .p text {
+  color: #fff;
+  padding: 4rpx 6rpx;
+  margin-right: 6rpx;
+}
+.vtitle {
+  height: 80rpx;
+  background: #efefef;
+  display: flex;
+  align-items: center;
+}
+.vtitle .titleLi {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 4rpx solid #efefef;
+  height: 100%;
+  box-sizing: border-box;
+}
+.shopMenu .swiper {
+  height: calc(100% - 80rpx);
+  display: flex;
+}
+.currrr {
+  background: #fff;
+  border-bottom: 4rpx solid #f60 !important
+}
+.shopMenu .rightFood {
+  width: calc(100% - 220rpx)
+}

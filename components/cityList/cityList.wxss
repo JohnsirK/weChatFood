@@ -1,0 +1,46 @@
+/* pages/allCity/allCity.wxss */
+.list {
+  overflow: hidden;
+}
+.list .title {
+  border-bottom: 2rpx solid #f1f1f1;
+  padding: 10rpx 30rpx;
+  font-size: 32rpx;
+  color: #333;
+  background: #f3f3f3;
+}
+.list .title .topName {
+  color: #999;
+  margin-left: 10rpx;
+  font-size: 24rpx;
+}
+.list .li {
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  text-align: left;
+  padding: 16rpx 30rpx;
+  font-size: 28rpx;
+  color: #666;
+  background: #fff;
+}
+.list .li:nth-child(4n + 1) {
+  border-right: none 
+}
+.hot .li {
+  color: #3190e8
+}
+.rightFix {
+  position: fixed;
+  right: 20rpx;
+  top:10%;
+  background: rgba(0, 0, 0, .3);
+  width: 20rpx;
+}
+.rightFix text {
+  color: #333;
+  font-size: 32rpx;
+}
+.rightFix text.cur {
+  color: #3190e8
+}

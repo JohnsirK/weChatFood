@@ -1,0 +1,15 @@
+<!--pages/me/children/explain/explain.wxml-->
+<view class="container">
+  <view class="serverList">
+    <view class="li" wx:for = "{{dataTitle}}" wx:key = "unique" bindtap ="onShowDialog" data-index = "{{index}}">
+      <text class="iconfont leftIcon icon-gantanhao"></text>
+      <text class="name">{{item}}</text>
+      <text class="iconfont rightIcon icon-tiaozhuanqianwangyoujiantouxiangyouxiayibuxianxing"></text>
+    </view>
+    <van-popup show = "{{isShow}}" bind:close = "onCloseDialog">
+      <view class="fiexdCon">
+        {{textDetail}}
+      </view>
+    </van-popup>
+  </view>
+</view>

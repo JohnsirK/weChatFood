@@ -1,0 +1,52 @@
+<!--pages/citySearch/citySearch.wxml-->
+<view class="container">
+  <view class="citySearch">
+    <view class="searLeft">
+      <text class="iconfont icon-dizhi"></text>
+      <text class="address">{{cityName}}</text>
+      <text class = "iconfont icon-down"></text>
+    </view>
+    <view class = "searchInput">
+      <text class="iconfont icon-sousuofangdajing"></text>
+      <input type="text" bindinput = "searchInp" placeholder = "输入学校, 商务楼, 地址..." />
+    </view>
+    <text class="searchBtn" bindtap = "goSearch">搜索</text>
+  </view>
+  <!-- 搜索结果 -->
+  <block wx:if = "{{searchListData.length > 0}}">
+    <view class="searchEnd">
+      <view class="li" wx:for = "{{searchListData}}" wx:for-item = "item" wx:for-index = "index" wx:key = "unique" bindtap = "toIndex" data-item = "{{item}}">
+        <view class="txt">
+          <view class="h4">{{item.name}}</view>
+          <view class="h5">{{item.address}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <!-- 搜索结果 end -->
+  <!-- 搜索记录 -->
+  <block wx:else>
+    <view class="searchHistory">
+      <text class="title">搜索历史</text>
+      <block wx:if = "{{historyList.length > 0}}">
+        <view class="li" wx:for = "{{historyList}}" wx:for-item = "item" wx:for-index = "index" wx:key = "unique" bindtap = "toIndex" data-item = "{{item}}">
+          <text class="iconfont icon-dizhi"></text>
+          <view class="txt">
+            <view class="h4">{{item.name}}</view>
+            <view class="h5">{{item.address}}</view> 
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="noData">
+          <text class="iconfont icon-kulian"></text>
+          暂无历史记录~
+        </view> 
+      </block>
+    </view>
+    <block wx:if = "{{historyList.length > 0}}">
+      <view class="clearAll" bindtap = "clearAllHistory"><text class="iconfont icon-shanchu"></text>清除所有</view>
+    </block>
+  </block>
+  <!-- 搜索记录 end -->
+</view>

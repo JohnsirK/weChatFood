@@ -1,0 +1,18 @@
+<!--pages/allShop/allShop.wxml-->
+<view class="container">
+  <view class="fixedTop" bindtap = "isNum">
+    <text>当前排列方式</text>
+    <text class = "right">{{text}} <text class = "iconfont icon-down"></text></text>
+  </view>
+  <view class="chooseList" animation = '{{isShowAni}}'>
+    <view class="li" wx:for = "{{orderList}}" bindtap = "changeIndex" data-index = "{{index}}" wx:key = "unique" data-item = "{{item}}">
+      {{item.text}}
+      <text class="okIndex iconfont icon-duihao" wx:if = "{{index === num}}"></text>
+    </view>
+  </view>
+  <view class="bg0" wx:if = "{{isShow}}" bindtap = "hideSelect"></view>
+  <view id="listData">
+    <food-list dataJson = "{{todayHotData}}"></food-list>
+  </view>
+  
+</view>

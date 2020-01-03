@@ -1,0 +1,7 @@
+<!--custom-tab-bar/index.wxml-->
+<view class = "tab-bar">
+  <view class="li {{selected === index ? 'colorSelected' : ''}}" wx:for = "{{list}}" wx:for-item = "item" wx:for-index = "index" wx:key = "unique" data-index = "{{index}}" data-path = "{{item.pagePath}}" bindtap = "switchTab">
+    <view class="iconfont {{item.iconPath}}"></view>
+    <view class = "text">{{item.text}}</view>
+  </view>
+</view>

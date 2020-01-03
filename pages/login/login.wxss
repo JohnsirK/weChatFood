@@ -1,0 +1,113 @@
+/* pages/login/login.wxss */
+.container {
+  background: #efefef;
+}
+.imgBox {
+  width: 100%;
+  height: 500rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logoImg {
+  width: 240rpx;
+  height: 240rpx;
+  display: block;
+}
+.inputText {
+  padding: 0 20rpx;
+}
+.inputBox {
+  position: relative;
+  margin-bottom: 30rpx;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.inputBox input {
+  border-bottom: 2rpx solid #d3d3d3;
+  height: 64rpx;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20rpx 0 80rpx;
+  font-size: 28rpx;
+  
+}
+.inputBox .t1 {
+  position: absolute;
+  bottom: 0;
+  left: 0; 
+  height: 2rpx;
+  background: #1989fa;
+}
+.inputBox .iconfont {
+  position: absolute;
+  transform: translate(20rpx, 0);
+  font-size: 32rpx;
+  color: #999;
+}
+.inputBtn button {
+  margin: 30rpx 0;
+  width: 100%;
+  background: #1989fa;
+  color: #fff;
+  font-weight: normal;
+  box-shadow: 0 4rpx 20rpx rgba(100, 100, 100, .08);
+}
+.inputBtn button:last-child {
+  background: #fff;
+  color: #333;
+}
+.yzm {
+  width: 200rpx;
+  height: 80rpx;
+  position: absolute;
+  right: 0;
+  bottom: 4rpx;
+  display: block;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+.tc {
+  font-size: 60rpx !important;
+  color: #e6e5e5;
+  animation: rateall 1s infinite linear 
+}
+.ani0 {
+  animation: widthAni0 0.3s;
+  width: 100%;
+}
+.ani1 {
+  animation: widthAni1 0.3s;
+  width: 0%;
+}
+@keyframes widthAni0 {
+  0% {
+    width: 0
+  }
+  100% {
+    width: 100%
+  }
+}
+@keyframes widthAni1 {
+  0% {
+    width: 100%
+  }
+  100% {
+    width: 0%
+  }
+}
+/* 旋转 */
+@keyframes rateall {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

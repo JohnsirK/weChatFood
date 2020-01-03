@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "shop-cart": "../../components/shop/shopCart/shopCart",
+    "my-mask": "../../components/mask/mask"
+  }
+}

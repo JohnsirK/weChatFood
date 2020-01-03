@@ -1,0 +1,59 @@
+/* components/rate/rate.wxss */
+@import '../../app.wxss'
+.rateStar {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-right: 10rpx;
+}
+.rateStar .fatherStart {
+  color: #eaeaea;
+  font-size: 28rpx;
+  margin-right: 4rpx;
+  position: relative;
+  width: 28rpx;
+}
+.rateStar .fatherStart text {
+  color: red;
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  font-size: 28rpx;
+}
+.rateStar .fatherStart .bw1 {
+  width: 10% !important;
+  overflow: hidden;
+}
+.rateStar .fatherStart .bw2 {
+  width: 20% !important;
+  overflow: hidden;
+}
+.rateStar .fatherStart .bw3 {
+  width: 30% !important;
+  overflow: hidden;
+}
+.rateStar .fatherStart .bw4 {
+  width: 40% !important;
+  overflow: hidden;
+}
+.rateStar .fatherStart .bw5 {
+  width: 50% !important;
+  overflow: hidden;
+}
+.rateStar .fatherStart .bw6 {
+  width: 60% !important;
+  overflow: hidden;
+}
+.rateStar .fatherStart .bw7 {
+  width: 70% !important;
+  overflow: hidden;
+}
+.rateStar .fatherStart .bw8 {
+  width: 80% !important;
+  overflow: hidden;
+}
+.rateStar .fatherStart .bw9 {
+  width: 90% !important;
+  overflow: hidden;
+}

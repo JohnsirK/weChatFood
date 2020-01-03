@@ -1,0 +1,39 @@
+<!--pages/shop/children/shopDetail/shopDetail.wxml-->
+<view class="container">
+  <view class="topImg">
+    <!-- // swiper 组件
+    // indicator-dots  是否显示面板指示点 -->
+    <swiper indicator-dots = "true" >
+      <block wx:for = "4" wx:key = "unique">
+        <swiper-item>
+         <image src = "{{imgUrl + shopDetail.image_path}}"></image>
+        </swiper-item>
+      </block>
+      
+    </swiper>
+  </view>
+  <view class="shopDetail">
+    <view class="h4">
+      名称： {{shopDetail.name}}
+      <view class="right">
+        <text style = "background: #{{item.icon_color}}" wx:for = "{{shopDetail.attributes}}" wx:key = "unique">{{item.icon_name}}</text>
+      </view>
+    </view>
+    <view class="h5">
+      评分：
+      <view style = "display: flex; align-items: center;">
+        <van-rate value = "{{shopDetail.rating}}" readonly allow-half size = "18"></van-rate> 
+      </view>
+      <text>{{shopDetail.rating}}</text>
+    </view>
+    <view class="h6">
+      {{shopDetail.tips}} 售价 ￥{{shopDetail.satisfy_rate}} 起
+    </view>
+  </view>
+  <view class="reply">
+    <text class="title">菜品评论</text>
+    <view class="noReply">
+      <van-icon name = "warning-o"></van-icon>暂无评价
+    </view>
+  </view>
+</view>

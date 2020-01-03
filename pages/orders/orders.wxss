@@ -1,0 +1,75 @@
+/* pages/orders/orders.wxss */
+.orderList {
+  padding-bottom: 100rpx;
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 20rpx;
+}
+.orderList .li {
+  background: #fff;
+  box-shadow: 0 4rpx 20rpx rgba(100, 100, 100, .1);
+  margin-bottom: 20rpx;
+}
+.orderList .li .h4 {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  color: #333;
+  font-size: 28rpx;
+  border-bottom: 2rpx solid #f5eded;
+}
+.orderList .li .h4 .right {
+  margin-left: auto;
+  font-size: 24rpx;
+}
+.orderList .li .h4 .right text {
+  color: red
+}
+.orderList .li .con {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  border-bottom: 2rpx solid #f5eded;
+}
+.orderList .li .con image {
+  width: 100rpx;
+  height: 100rpx;
+  display: block;
+}
+.orderList .con .text {
+  width: calc(100% - 120rpx);
+  margin-left: 20rpx;
+  
+}
+.orderList .con .text .h5 {
+  color: #666;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+}
+.orderList .con .text .h5 .del {
+  margin-left: auto;
+  color: #999;
+  font-size: 40rpx;
+}
+.orderList .con .h6 {
+  color: #f60;
+  font-size: 32rpx;
+}
+.orderList .con .h6 text {
+  font-size: 40rpx;
+}
+.orderList .foot {
+  padding: 20rpx;
+  color: #999;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+}
+.orderList .foot .again {
+  border: 2rpx solid #999;
+  color: #999;
+  font-size: 24rpx;
+  padding: 6rpx 10rpx;
+  margin-left: auto;
+}

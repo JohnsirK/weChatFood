@@ -1,0 +1,223 @@
+<!--pages/shop/shop.wxml-->
+<view class="container">
+  <my-mask isShow = "{{maskIsShow}}"></my-mask>
+  <!-- 顶部店铺信息 -->
+  <view class="topShopInfo">
+    <view class="bgImg">
+      <image src = "{{imgUrl + shopDetail.image_path}}" mode = "scaleToFill"></image>
+    </view>
+    <view class="shopInfo">
+      <image class = "imgTx" src = "{{imgUrl + shopDetail.image_path}}" mode = "widthFix"></image>
+      <view class="txt">
+        <view class="h4">
+          <text class="zhuan">{{shopDetail.delivery_mode ? shopDetail.delivery_mode.text : ''}}</text>
+          <text class="in">{{shopDetail.name}}</text> 
+          <view class="right">
+            <text wx:for = "{{shopDetail.supports}}" wx:key = "unique" class = "fo" style = "background: #{{item.icon_color}};">{{item.icon_name}}</text>
+          </view>
+        </view>
+        <view class="h5">
+          {{shopDetail.float_minimum_order_amount}} 分钟送达 / 配送费约 ￥{{shopDetail.float_delivery_fee}}
+        </view>
+        <view class="h6">
+          {{shopDetail.address}}
+        </view>
+      </view>
+    </view>
+    <van-notice-bar left-icon = "volume-o" text = "{{shopDetail.promotion_info}}, 本店主营：{{shopDetail.category}}, 营业时间: {{shopDetail.opening_hours[0]}}, 电话: {{shopDetail.phone}}" backgroundColor = "rgba(0,0,0,.6)" color = "#fff"></van-notice-bar>
+  </view>
+  <!-- 顶部店铺信息 end -->
+  <view class="shopMenu">
+    <view class="vtitle">
+      <view class="titleLi {{0 == cidx ? 'currrr' : ''}}" bindtap = "titleClick" data-idx = "0">
+        商品
+      </view>
+      <view class="titleLi {{1 == cidx ? 'currrr' : ''}}" bindtap = "titleClick" data-idx = "1">
+        评价
+      </view>
+      <view class="titleLi {{2 == cidx ? 'currrr' : ''}}" bindtap = "titleClick" data-idx = "2">
+        详情
+      </view>
+    </view>
+    <!-- 内容 -->
+    <swiper class = "swiper" bindchange = "pageChange" current = "{{cidx}}">
+      <swiper-item class = "swiper">
+        <block wx:if = "{{shopMenu.length > 0}}">
+          <!-- scroll-view组件 -->
+          <!-- scoll-y 允许滚动方向 -->
+          <!-- scroll-top 设置竖向滚动条位置 -->
+          <!-- scroll-with-animation 设置滚动条位置时使用动画过度 -->
+          <!-- 左侧 --> 
+          <scroll-view scroll-y = "true" class = "leftMenu" scroll-top = "{{leftTop}}" scroll-with-animation = "true">
+            <!-- 左侧 -->
+            <view class="leftLi {{leftIndex === idx ? 'cur' : ''}}" wx:for = "{{shopMenu}}" wx:for-item = "item" wx:for-index = "idx" wx:key = "unique" data-id = "{{item.id}}" data-index = "{{idx}}" bindtap = "leftTap">
+              {{item.name}}
+              <block wx:if = "{{item.myNum}}">
+                <text class="rightIcon" >{{item.myNum}}</text>
+              </block>
+            </view>
+          </scroll-view>
+          <!-- 右侧 -->
+          <scroll-view scroll-y = "true" class = "rightFood" scroll-with-animation = "true" scroll-into-view = "{{rightCurrent}}" bindscroll = "bindscroll">
+            <view class="rightList" wx:for = "{{shopMenu}}" wx:for-item = "item" wx:for-index = "idx" wx:key = "unique" id = "{{item.id}}">
+                <view class="h2">
+                  {{item.name}}
+                </view>
+                <view class="li" wx:for = "{{item.foods}}" wx:for-item = "li" wx:for-index = "index" wx:key = "unique" bindtap = "toDetail" data-item = "{{li}}">
+                  <image src = "{{imgUrl + li.image_path}}" mode = "widthFix" class = "img"></image>
+                  <view class="txt">
+                    <view class="h3">{{li.name}}</view>
+                    <view class="h4">{{li.description}}</view>
+                    <view class="h5">{{li.tips}}</view>
+                    <view class="money">
+                      <text class="l">￥</text>
+                      {{li.specfoods[0] ? li.specfoods[0].price: 9.9}}
+                    </view>
+                  </view>
+                  <view class="numMenu">
+                    <block wx:if = "{{li.specifications[0].values.length > 1}}">
+                      <text class = "sepc" catchtap = "openSpec" data-item = "{{li}}">规格</text> 
+                      <view class="showSpec" wx:if = "{{selectid === li._id}}">
+                        <text class="title">选择规格</text>
+                        <view class = "spanList">
+                          <text class = "span {{selectSpec === index ? 'cur' : ''}}" wx:for = "{{li.specifications[0].values}}" wx:key = "unique" catchtap = "changeSpan" data-index = "{{index}}">{{item ? item : '默认'}}</text> 
+                        </view>
+                        <view class="bot">
+                          <text class = "btnOk" catchtap = "isAdd" data-item = "{{li}}">确定</text>
+                          <text class = "btnCencel" catchtap = "cenCencel">取消</text>
+                        </view>
+                      </view>
+                    </block>
+                    <block wx:else>
+                      <block  wx:if = "{{li.myNum}}">
+                        <view class="noShow">
+                          <text class = "leftJian iconfont icon-jianshao" catchtap = "isJian" data-item = "{{li}}"></text>
+                          <text class = "num">{{li.myNum}}</text>
+                        </view>
+                      </block>
+                      <text catchtap = "isAdd" class = "rightAdd iconfont icon-zengjia" data-item = "{{li}}"></text>
+                    </block>
+                  </view>
+                </view>
+              </view>
+          </scroll-view>
+        </block>
+        <block wx:else >
+          <view class="noData" style = "width: 100%; max-height: 80rpx; justify-content: center;">
+            <text class = "iconfont icon-kulian"></text>暂无数据
+          </view>
+        </block>
+      </swiper-item>
+      <swiper-item class = "swiper">
+        <scroll-view scroll-y = "true">
+          <view class="scrores">
+            <wxs src = "./../../utils/tools.wxs" module = "tools" />
+            <view class="topScores">
+              <view class="left">
+                <text class="h4 f60">{{tools.toFixed(ratingScoresData.overall_score, 1)}}</text>
+                <text class="h5">综合评价</text>
+                <text class="h6">高于周边商家</text>
+              </view>
+              <view class="right">
+                <view class="h4 fc">
+                  <text>菜品评价：</text>
+                  <view class = "fc">
+                    <van-rate value = "{{tools.toFixed(ratingScoresData.food_score, 1)}}" readonly allow-half size = "18"></van-rate>
+                  </view>
+                  <text class = "f60">{{tools.toFixed(ratingScoresData.food_score, 1)}}</text>
+                </view>
+                <view class="h4 fc">
+                  <text>服务态度：</text>
+                  <view class = "fc">
+                    <van-rate value = "{{tools.toFixed(ratingScoresData.service_score, 1)}}" readonly allow-half size = "18"></van-rate>
+                  </view>
+                  <text class = "f60">{{tools.toFixed(ratingScoresData.service_score, 1)}}</text>
+                </view>
+                <view class="h4 fc">
+                  <text>送达时间：</text>
+                  <text class = "f999">40分钟</text>
+                </view>
+              </view>
+            </view>
+            <view class="botScores">
+              <view class="scoresList">
+                <text class = "{{item.unsatisfied ? 'cur1' : ''}}" wx:for = "{{ratingTagsData}}" wx:key = "unique" >{{item.name}} ({{item.count}})</text>
+              </view>
+              <view class="replyList">
+                
+                <text class="title">网友评价</text>
+                <view class="list" wx:for = "{{getRatingsListData}}" wx:key = "unique" wx:for-item = "list" wx:for-index = "index">
+                  <image src = "{{tools.imgPath(list.avatar)}}" mode = "widthFix" class = "leftimg"></image>
+                  <view class="txt">
+                    <view class="h3">
+                      {{list.username}}
+                      <text class="time">{{list.rated_at}}</text>
+                    </view>
+                    <view class="h4 fc">
+                      <view class = "fc">
+                        <van-rate value = "{{list.rating_star}}" readonly allow-half size = "18"></van-rate>
+                      </view>
+                     <text style = "margin: 0 10rpx;">{{list.rating_star}}</text> {{list.time_spent_desc}} 
+                    </view>
+                    <view class="listimg">
+                      {{list.rating_text ? list.rating_text : '暂无评论，默认好评'}}
+                    </view>
+                    <view class="h5">
+                      <text wx:for = "{{list.item_ratings}}" wx:key = "unique" wx:for-item = "tags" wx:for-index = "index">{{tags.food_name}}</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item class = "swiper">
+        <scroll-view scroll-y = "true">
+          <view class="shopInfoText">
+            <view class="topInfo">
+              <text class="h4">商家名称：{{shopDetail.name}}</text>
+              <view class="p">
+                主营业务: {{shopDetail.category}}
+              </view>
+              <view class="p">
+                营业时间: {{shopDetail.opening_hours[0]}}
+              </view>
+              <view class="p">
+                店铺公告: {{shopDetail.promotion_info}}
+              </view>
+              <view class="p">
+                店铺地址: {{shopDetail.address}}
+              </view> 
+              <view class="p">
+                店铺电话: {{shopDetail.phone}}
+              </view>
+            </view>
+            <view class="centerInfo">
+              <text class="h4">活动与属性</text>
+              <view class="p" wx:for = "{{shopDetail.activities}}" wx:for-item = "li" wx:key = "unique">
+                <text style = "background: #{{li.icon_color}}">{{li.icon_name}}</text>
+                {{li.description}}
+              </view>
+              <view class="p" wx:for = "{{shopDetail.supports}}" wx:key = "unique" wx:for-item = "im">
+                <text style = "background: #{{im.icon_color}}">{{im.icon_name}}</text>
+                {{im.description}}
+              </view>
+            </view>
+            <view class="foodInfo">
+              <text class="h4">食品监督安全公示</text>
+              <view class="p">
+                食品检查结果： 良好
+              </view>
+              <view class="p">
+                检查日期: 2019-12-5 15:00:44
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>
+<!-- 购物车 -->
+<shop-cart dataJson = "{{buyShopData}}" allNum = "{{shopNum}}" allMoney = "{{shopMoney}}" bind:allClearData = "saveSons" shopInfo = "{{shopDetail}}"></shop-cart>

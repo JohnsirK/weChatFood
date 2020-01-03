@@ -1,0 +1,38 @@
+<!--components/index/foodList/foodList.wxml-->
+<view class="foodList">
+  <block wx:if = "{{dataJson.length > 0}}">
+    <view class="li" wx:for = "{{dataJson}}" wx:for-item = "item" wx:for-index = "index" wx:key = "unique" bindtap = "toShop" data-item = "{{item}}">
+      <image lazy-load = "true" src = "{{imgUrl + item.image_path}}" mode = "widthFix"></image>
+      <view class="left">
+        <view class="h4">
+          <text class="tag">标签</text>
+          <text class="title">{{item.name}}</text>
+          <view class="right fenlei fs12 color6" wx:if = "{{item.supports.length > 0}}">
+            <text wx:for = "{{item.supports}}" wx:for-item = "li" wx:key = "unique" style = "color: #{{li.icon_color}}">{{li.icon_name}}</text>
+          </view>
+        </view>
+        <view class="h5">
+          <view class = "rageView">
+            <van-rate value = "{{item.rating}}" readonly allow-half size = "18"></van-rate>
+          </view>
+          <text class = "rate fs12 color1 mr5">{{item.rating}}</text>
+          <text class="fs12 color0 fs12">月售{{item.recent_order_num}}单</text>
+          <view class="right zhuans fs12 color6" style = "background: #{{item.delivery_mode.color}}">
+            <text>{{item.delivery_mode.text}}</text>
+          </view>
+        </view>
+        <view class="h6">
+          <text class="fs12 color6">￥{{item.float_minimum_order_amount}}起送 / 配送费约￥{{item.float_delivery_fee}}</text>
+          <view class="right sdtime fs10 color6">
+            {{item.distance}} / <text class = "color2">{{item.order_lead_time}}分钟</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="noData">
+      数据加载中...
+    </view>
+  </block>
+</view>

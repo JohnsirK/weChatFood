@@ -1,0 +1,12 @@
+<!--pages/food/food.wxml-->
+<view class="container">
+ <van-dropdown-menu class = "fixedTop">
+   <van-dropdown-item title = "默认选项" id = "toggleStatus">
+     <van-tree-select items = "{{categoryList}}" main-active-index = "{{mainActiveIndex}}" active-id = "{{activeId}}" bind:click-nav = "onClickNav" bind:click-item = "onClickItem"></van-tree-select>
+   </van-dropdown-item>
+   <van-dropdown-item bind:change = "changeIndex" value = "{{order_by}}" options = "{{orderList}}"></van-dropdown-item>
+ </van-dropdown-menu>
+  <view class = "mt102">
+    <food-list dataJson = "{{categoryData}}"></food-list>
+  </view>
+</view>

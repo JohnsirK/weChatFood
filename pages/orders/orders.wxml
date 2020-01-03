@@ -1,0 +1,38 @@
+<!--pages/orders/orders.wxml-->
+<view class="container">
+  <scroll-view scroll-y = "true">
+    <block wx:if = "{{orderListData.length > 0}}">
+      <view class="orderList">
+        <view class="li" wx:for = "{{orderListData}}" wx:key = "unique">
+          <view class="h4">
+            店铺名称: {{item.restaurant_name}}
+            <view class="right">
+              订单状态: <text style = "color: #{{item.status_bar.color}}">{{item.status_bar.title}}</text>
+            </view> 
+          </view>
+          <view class="con">
+            <image class = "simg" mode = "widthFix" src = "{{imgUrl + item.restaurant_image_url}}"></image>
+            <view class="text">
+              <view class="h5">
+                名称: {{item.basket.group[0][0].name}} 等等 {{item.total_quantity}}个
+                <!-- <text class="del iconfont icon-shanchu" catchtap = "delAddress" data-index = "{{index}}"></text> -->
+              </view>
+              <view class="h6">
+                ￥<text >{{item.total_amount}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="foot">
+            <text class = "time">下单时间: {{item.formatted_created_at}}</text>
+            <text class = "again">再来一单</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:else> 
+      <view class="noData" >
+        <text class = "iconfont icon-kulian"></text>当前暂无地址数据
+      </view>
+    </block>
+  </scroll-view>
+</view>

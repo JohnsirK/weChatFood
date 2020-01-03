@@ -1,0 +1,84 @@
+/* pages/search/search.wxss */
+.topMenu {
+  background: #3190e8;
+  padding: 20rpx;
+}
+.topMenu .pd {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.topMenu input {
+  width: 80%;
+  border-radius: 30rpx;
+  background: #fff;
+  font-size: 28rpx;
+  color: #999;
+  padding: 10rpx 10rpx 10rpx 60rpx;
+}
+.topMenu .serch {
+  margin-left: auto;
+  color: #fff;
+  font-size: 28rpx;
+}
+.topMenu .iconfont {
+  position: absolute;
+  left: 20rpx;
+  color: #666;
+  font-size: 24rpx;
+}
+.searchEnd .h3, .hisSearch .h3 {
+  font-size: 28rpx;
+  color: #333;
+  padding: 20rpx;
+  background: #f5f5f5;
+}
+.searchEnd {
+  background: #fff;
+}
+.searchEnd .li{
+  background: #fff;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid #f6f8fa;
+  margin-bottom: 20rpx;
+}
+.searchEnd .li image {
+  width: 100rpx;
+  height: 100rpx;
+  display: block;
+}
+.searchEnd .li .text {
+  width: calc(100% - 120rpx);
+  margin-left: 20rpx;
+}
+.searchEnd .li .text .h5 {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+.searchEnd .li .text .h6 {
+  font-size: 24rpx;
+  color: #999
+}
+.hisSearch { 
+} 
+.hisSearch .li {
+  background: #fff;
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 2rpx solid #f6f8fa;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 24rpx;
+  color: #666
+}
+.hisSearch .clear {
+  text-align: center;
+  padding: 20rpx 0;
+  color: #999;
+  font-size: 24rpx
+}

@@ -1,0 +1,21 @@
+<!--pages/me/children/changePwd/changePwd.wxml-->
+<view class="container">
+  <view class="changePwd">
+    <view class="p">
+      <input type="text" placeholder="请输入原密码" bindinput = "oldpwd" />
+    </view>
+    <view class="p">
+      <input type="text" placeholder="请输入新密码" bindinput = "newpwd" />
+    </view>
+    <view class="p">
+      <input type="text" placeholder="请再次输入新密码" bindinput = "againpwd" />
+    </view>
+    <view class="p">
+      <input type="text" maxlength="4" placeholder="请输入验证码" bindinput = "captcha" />
+      <image src = "{{captYzm}}" mode = "widthFix" class="yzm"></image>
+    </view>
+    <view class="p">
+      <text class = "btn" catchtap = "handlerChange">修改</text>
+    </view>
+  </view>
+</view>
